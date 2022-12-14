@@ -460,8 +460,14 @@ char *yytext;
 #line 1 "gauss.lex"
 #line 2 "gauss.lex"
     #include<stdio.h>
-#line 464 "lex.yy.c"
-#line 465 "lex.yy.c"
+
+    int yywrap(void){
+        return 1;
+    }
+    
+    FILE *fp;
+#line 470 "lex.yy.c"
+#line 471 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -678,10 +684,10 @@ YY_DECL
 		}
 
 	{
-#line 5 "gauss.lex"
+#line 11 "gauss.lex"
 
 
-#line 685 "lex.yy.c"
+#line 691 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -740,94 +746,116 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 7 "gauss.lex"
+#line 13 "gauss.lex"
 {
         fprintf(fp, "SSIN\n");
     }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 10 "gauss.lex"
+#line 16 "gauss.lex"
 {
         fprintf(fp, "SCOS\n");
     }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 13 "gauss.lex"
+#line 19 "gauss.lex"
 {
         fprintf(fp, "SNAIPIER\n");
     }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 16 "gauss.lex"
+#line 22 "gauss.lex"
 {
-        fprintf(fp, "SLOG\n%");
+        fprintf(fp, "SLOG\n");
     }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 19 "gauss.lex"
-{return SLPAREN;}
+#line 25 "gauss.lex"
+{
+        fprintf(fp, "SLOG\n");
+    }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 20 "gauss.lex"
-return SRPAREN;
+#line 28 "gauss.lex"
+{
+        fprintf(fp, "SLOG\n");
+    }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 21 "gauss.lex"
-return SCOMMA;
+#line 31 "gauss.lex"
+{
+        fprintf(fp, "SLOG\n");
+    }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 22 "gauss.lex"
-return SADD;
+#line 34 "gauss.lex"
+{
+        fprintf(fp, "SLOG\n");
+    }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 23 "gauss.lex"
-return  SSUB;
+#line 37 "gauss.lex"
+{
+        fprintf(fp, "SLOG\n");
+    }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 24 "gauss.lex"
-return  SMULT;
+#line 40 "gauss.lex"
+{
+        fprintf(fp, "SLOG\n");
+    }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 25 "gauss.lex"
-return  SDIV;
+#line 43 "gauss.lex"
+{
+        fprintf(fp, "SLOG\n");
+    };
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 26 "gauss.lex"
-return  SPOW;
+#line 46 "gauss.lex"
+{
+        fprintf(fp, "SLOG\n");
+    };
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 27 "gauss.lex"
-return SVAL;
+#line 49 "gauss.lex"
+{
+                fprintf(fp, "SLOG\n");
+            }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 28 "gauss.lex"
-return SNUM;
+#line 52 "gauss.lex"
+{
+            fprintf(fp, "SLOG\n");
+        }
 	YY_BREAK
 case 15:
 /* rule 15 can match eol */
 YY_RULE_SETUP
-#line 29 "gauss.lex"
-return SNULL;
+#line 55 "gauss.lex"
+{
+                fprintf(fp, "SLOG\n");
+            }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 31 "gauss.lex"
+#line 59 "gauss.lex"
 ECHO;
 	YY_BREAK
-#line 831 "lex.yy.c"
+#line 859 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1832,12 +1860,12 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 31 "gauss.lex"
+#line 59 "gauss.lex"
 
 
 int main(){
-    FILE *fp;
-    if((fp = fopen("gauss_token.tok", 'w')) != NULL){
+
+    if((fp = fopen("gauss_token.tok", "w")) != NULL){
         perror("file error");
         return 1;
     }

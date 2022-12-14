@@ -1,5 +1,11 @@
 %{
     #include<stdio.h>
+
+    int yywrap(void){
+        return 1;
+    }
+    
+    FILE *fp;
 %}
 
 %%
@@ -14,25 +20,47 @@ e   {
         fprintf(fp, "SNAIPIER\n");
     }
 log {
-        fprintf(fp, "SLOG\n%");
+        fprintf(fp, "SLOG\n");
     }
-\(     {return SLPAREN;}
-\)     return SRPAREN;
-,     return SCOMMA;
-\+     return SADD;
--     return  SSUB;
-\*     return  SMULT;
-\/     return  SDIV;
-\^     return  SPOW;
-[a-zA-Z]+   return SVAL;
-[0-9]+  return SNUM;
-[\n\t\s]+  return SNULL;
+\(  {
+        fprintf(fp, "SLOG\n");
+    }
+\)  {
+        fprintf(fp, "SLOG\n");
+    }
+,   {
+        fprintf(fp, "SLOG\n");
+    }
+\+  {
+        fprintf(fp, "SLOG\n");
+    }
+-   {
+        fprintf(fp, "SLOG\n");
+    }
+\*  {
+        fprintf(fp, "SLOG\n");
+    }
+\/   {
+        fprintf(fp, "SLOG\n");
+    };
+\^  {
+        fprintf(fp, "SLOG\n");
+    };
+[a-zA-Z]+   {
+                fprintf(fp, "SLOG\n");
+            }
+[0-9]+  {
+            fprintf(fp, "SLOG\n");
+        }
+[\n\t\s]+   {
+                fprintf(fp, "SLOG\n");
+            }
 
 %%
 
 int main(){
-    FILE *fp;
-    if((fp = fopen("gauss_token.tok", 'w')) != NULL){
+
+    if((fp = fopen("gauss_token.tok", "w")) != NULL){
         perror("file error");
         return 1;
     }
