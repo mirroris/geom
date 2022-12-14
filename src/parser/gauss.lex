@@ -23,38 +23,36 @@ log {
         fprintf(fp, "SLOG\n");
     }
 \(  {
-        fprintf(fp, "SLOG\n");
+        fprintf(fp, "SLPAREN\n");
     }
 \)  {
-        fprintf(fp, "SLOG\n");
+        fprintf(fp, "SRPAREN\n");
     }
 ,   {
-        fprintf(fp, "SLOG\n");
+        fprintf(fp, "SCOMMA\n");
     }
 \+  {
-        fprintf(fp, "SLOG\n");
+        fprintf(fp, "SADD\n");
     }
 -   {
-        fprintf(fp, "SLOG\n");
+        fprintf(fp, "SSUB\n");
     }
 \*  {
-        fprintf(fp, "SLOG\n");
+        fprintf(fp, "SMULT\n");
     }
 \/   {
-        fprintf(fp, "SLOG\n");
+        fprintf(fp, "SDIV\n");
     };
 \^  {
-        fprintf(fp, "SLOG\n");
+        fprintf(fp, "SPOW\n");
     };
 [a-zA-Z]+   {
-                fprintf(fp, "SLOG\n");
+                fprintf(fp, "SVAL\n");
             }
 [0-9]+  {
-            fprintf(fp, "SLOG\n");
+            fprintf(fp, "SNUM\n");
         }
-[\n\t\s]+   {
-                fprintf(fp, "SLOG\n");
-            }
+
 
 %%
 
