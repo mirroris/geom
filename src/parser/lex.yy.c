@@ -1851,7 +1851,7 @@ void yyfree (void * ptr )
 
 int main(){
 
-    if((fp = fopen("gauss_token.tok", "w")) != NULL){
+    if((fp = fopen("gauss_token.tok", "w")) == NULL){
         perror("file error");
         return 1;
     }
