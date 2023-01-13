@@ -3,7 +3,7 @@ C++ library to handle differential
 
 # Parser
 
-# Reler
+# Ruler
 
 # Differential Tree 
 
