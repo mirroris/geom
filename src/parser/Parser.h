@@ -12,7 +12,7 @@ class Parser {
     public:
         Parser();
         ~Parser();
-        string parse();
+        Token *parse();
 }
 
 
